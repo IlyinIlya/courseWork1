@@ -66,11 +66,6 @@ public class Main {
         //Вывод информации о сотруднике по ID
         System.out.println(eBook.printById(5));
 
-        //Найти свободную ячейку в массиве и положить в нее данные нового сотрудника
-        Employee employee2 = new Employee(1, "Булгаков",
-                "Федор", "Леонидович", 256);
-        System.out.println("Добавление сотрудника: " + eBook.addNewEmployee(employee2));
-
         // Расчет общей суммы по ЗП, поиск минимальной/максимальной ЗП, расчет средней ЗП
         System.out.println("Сотрудник с минимальной зарплатой: " + eBook.calculateMinSalary());
         System.out.println("Сотрудник с максимальной зарплатой: " + eBook.calculateMaxSalary());
@@ -78,7 +73,6 @@ public class Main {
         eBook.printEmployeeFullName();
 
         // Поиск минимальной/максимальной ЗП при задании фильтра по отделам
-        int departmentID = 5;
         System.out.println("В отделе № " + departmentID + " минимальная зарплата сотрудника: "
                 + eBook.calculateMinSalary(departmentID));
         System.out.println("В отделе № " + departmentID + " максимальная зарплата сотрудника: "
