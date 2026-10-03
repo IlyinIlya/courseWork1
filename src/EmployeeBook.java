@@ -1,4 +1,5 @@
 public class EmployeeBook {
+
     private final static int numberOfEmployees = 10;
     private final Employee[] employee = new Employee[numberOfEmployees];
 

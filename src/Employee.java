@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Employee {
+
     private final String employeeFirstName;
     private final String employeeLastName;
     private final String employeeMiddleName;

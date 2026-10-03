@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+
         EmployeeBook eBook = new EmployeeBook();
         eBook.addNewEmployee(1, "Булгакова",
                 "София", "Леоновна", 32890.45f);
