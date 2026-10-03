@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Employee {
 
     private final String employeeFirstName;
@@ -59,6 +57,12 @@ public class Employee {
         return "ID: " + id + " | Отдел: " + department + " | ФИО: "
                 + employeeLastName + " " + employeeFirstName + " "
                 + employeeMiddleName + " | Зарплата: " + employeeSalary;
+    }
+    //Вывод только имени и зарплате
+    public void printShortInfo() {
+        System.out.println("ФИО: " + employeeLastName + " "
+                + employeeFirstName + " " + employeeMiddleName
+                + " | Зарплата: " + employeeSalary);
     }
 
     // Equals и hascode
