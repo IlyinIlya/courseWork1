@@ -35,7 +35,7 @@ public class Employee {
         return this.department;
     }
 
-    public float getEmployeeSalary() {
+    public int getEmployeeSalary() {
         return this.employeeSalary;
     }
 
