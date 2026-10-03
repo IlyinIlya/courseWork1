@@ -32,9 +32,13 @@ public class Main {
         //Поиск сотрудников с зарплатой меньше указанной
         eBook.findEmployeesWithSalaryLessThanLimit(230, 3);
         //Проверка наличия сотрудника
-        Employee searchEmployee = new Employee(1, "Булгакова",
-                "София", "Леоновна", 128);;
-        System.out.println(eBook.checkExistEmployeeOrNot(searchEmployee));
+        Employee employee1 = new Employee(1, "Булгакова",
+                "София", "Леоновна", 128);
+        System.out.println(eBook.checkExistEmployeeOrNot(employee1));
+        //Найти свободную ячейку в массиве и положить в нее данные нового сотрудника
+        Employee employee2 = new Employee(1, "Булгаков",
+                "Федор", "Леонидович", 256);
+        System.out.println("Добавление сотрудника: " + eBook.addNewEmployee(employee2));
         eBook.printEmployeeInfo();
         // Расчет общей суммы по ЗП, поиск минимальной/максимальной ЗП, расчет средней ЗП
         System.out.println("Сотрудник с минимальной зарплатой: " + eBook.calculateMinSalary());
@@ -75,6 +79,6 @@ public class Main {
         eBook.addNewEmployee(2, "Петров", "Иван", "Романович", 432);
         eBook.printEmployeeInfo();
         //Вывод информации о сотруднике по ID
-        eBook.printById(5);
+        System.out.println(eBook.printById(5));
     }
 }

@@ -14,6 +14,16 @@ public class EmployeeBook {
         throw new RuntimeException("Не возможно добавить пользователя. Ограничение по количеству");
     }
 
+    public boolean addNewEmployee(Employee newEmployee) {
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i] == null) {
+                employee[i] = newEmployee;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void removeEmployee(int id) throws RuntimeException {
         for (int i = 0; i < employee.length; i++) {
             if (employee[i] != null && employee[i].getId() == id) {
@@ -41,12 +51,13 @@ public class EmployeeBook {
         }
     }
 
-    public void printById(int id) {
+    public Employee printById(int id) {
         for (Employee employees : employee) {
             if (employees != null && employees.getId() == id) {
-                System.out.println(employees);
+                return employees;
             }
         }
+        return null;
     }
 
     public void printEmployeeInfoNoDep() {
