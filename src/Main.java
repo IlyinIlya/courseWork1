@@ -3,25 +3,25 @@ public class Main {
 
         EmployeeBook eBook = new EmployeeBook();
         eBook.addNewEmployee(1, "Булгакова",
-                "София", "Леоновна", 32890.45f);
+                "София", "Леоновна", 328);
         eBook.addNewEmployee(2, "Родина",
-                "Александра", "Артемьевна", 31575.25f);
+                "Александра", "Артемьевна", 315);
         eBook.addNewEmployee(3, "Зайцева",
-                "Елизавета", "Ивановна", 34099.09f);
+                "Елизавета", "Ивановна", 340);
         eBook.addNewEmployee(5, "Демин",
-                "Матвей", "Андреевич", 27829.36f);
+                "Матвей", "Андреевич", 278);
         eBook.addNewEmployee(4, "Румянцев",
-                "Илья", "Никитич", 32547.41f);
+                "Илья", "Никитич", 325);
         eBook.addNewEmployee(2, "Лопатин",
-                "Тимофей", "Викторович", 30776.91f);
+                "Тимофей", "Викторович", 307);
         eBook.addNewEmployee(1, "Котова",
-                "Сафия", "Михайловна", 29791.22f);
+                "Сафия", "Михайловна", 297);
         eBook.addNewEmployee(5, "Федосеев",
-                "Алексей", "Львович", 35112.69f);
+                "Алексей", "Львович", 351);
         eBook.addNewEmployee(4, "Смирнов",
-                "Александр", "Александрович", 33001.15f);
+                "Александр", "Александрович", 330);
         eBook.addNewEmployee(3, "Кузьмина",
-                "Мария", "Максимовна", 33553.82f);
+                "Мария", "Максимовна", 335);
 
         // Вывод информации по всем сотрудникам
         eBook.printEmployeeInfo();
@@ -53,7 +53,7 @@ public class Main {
         // Вывод информации по всем сотрудником, исключая номер отдела
         eBook.printEmployeeInfoNoDep();
         // Вывод информации по сотрудникам с ЗП меньше лимита
-        float limitSalary = 33000.50f;
+        float limitSalary = 330;
         eBook.findLessLimitCurrentSalary(limitSalary);
         // Вывод информации по сотрудникам с ЗП меньше лимита
         eBook.findMoreLimitCurrentSalary(limitSalary);
@@ -61,7 +61,7 @@ public class Main {
         eBook.removeEmployee(2);
         eBook.printEmployeeInfo();
         //Добавить нового сотрудника
-        eBook.addNewEmployee(2, "Петров", "Иван", "Романович", 43222.13f);
+        eBook.addNewEmployee(2, "Петров", "Иван", "Романович", 432);
         eBook.printEmployeeInfo();
         //Вывод информации о сотруднике по ID
         eBook.printById(5);

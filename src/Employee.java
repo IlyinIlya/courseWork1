@@ -6,12 +6,12 @@ public class Employee {
     private final String employeeLastName;
     private final String employeeMiddleName;
     private int department;
-    private float employeeSalary;
+    private int employeeSalary;
     private final int id;
     private static int idCounter = 0;
 
     public Employee(int department, String employeeLastName, String employeeFirstName,
-                    String employeeMiddleName, float employeeSalary) {
+                    String employeeMiddleName, int employeeSalary) {
         this.department = department;
         this.employeeLastName = employeeLastName;
         this.employeeFirstName = employeeFirstName;
@@ -50,7 +50,7 @@ public class Employee {
         this.department = department;
     }
 
-    public void setEmployeeSalary(float employeeSalary) {
+    public void setEmployeeSalary(int employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
 

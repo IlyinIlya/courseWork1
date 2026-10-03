@@ -4,7 +4,7 @@ public class EmployeeBook {
     private final Employee[] employee = new Employee[numberOfEmployees];
 
     public void addNewEmployee(int department, String lastname,
-                               String firstname, String middlename, float salary) throws RuntimeException {
+                               String firstname, String middlename, int salary) throws RuntimeException {
         for (int i = 0; i < employee.length; i++) {
             if (employee[i] == null) {
                 employee[i] = new Employee(department, lastname, firstname, middlename, salary);
@@ -149,8 +149,8 @@ public class EmployeeBook {
     public float salaryIndexIncrease(float index) {
         for (Employee employees : employee) {
             if (employees != null) {
-                employees.setEmployeeSalary(employees.getEmployeeSalary()
-                        + (employees.getEmployeeSalary() / 100 * index));
+                employees.setEmployeeSalary( (int) (employees.getEmployeeSalary()
+                        + (employees.getEmployeeSalary() / 100 * index)));
             }
         }
         return index;
@@ -159,8 +159,8 @@ public class EmployeeBook {
     public float salaryIndexIncrease(float index, int departmentId) {
         for (Employee employees : employee) {
             if (employees != null && employees.getDepartmentId() == departmentId) {
-                employees.setEmployeeSalary(employees.getEmployeeSalary()
-                        + (employees.getEmployeeSalary() / 100 * index));
+                employees.setEmployeeSalary( (int) (employees.getEmployeeSalary()
+                        + (employees.getEmployeeSalary() / 100 * index)));
             }
         }
         return index;
