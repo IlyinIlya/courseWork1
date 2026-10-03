@@ -121,16 +121,18 @@ public class EmployeeBook {
 
     public float calculateAverageSalary() {
         int avgSum = 0;
+        float salarySum = 0;
         for (Employee employees : employee) {
             if (employees == null) {
                 break;
             }
                 avgSum++;
+                salarySum += employees.getEmployeeSalary();
         }
         if (avgSum == 0) {
             return 0;
         }
-        return salaryCalculate() / avgSum;
+        return salarySum / avgSum;
     }
 
     public float calculateAverageSalary(int departmentId) {
@@ -165,7 +167,7 @@ public class EmployeeBook {
 
     public float salaryIndexIncrease(float index, int departmentId) {
         for (Employee employees : employee) {
-            if (employees != null && employees.getDepartmentId() != departmentId) {
+            if (employees == null || employees.getDepartmentId() != departmentId) {
                 continue;
             }
             if (index == 0) {
