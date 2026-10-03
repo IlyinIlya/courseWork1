@@ -67,13 +67,11 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee emploee = (Employee) o;
-        return employeeSalary == emploee.employeeSalary && Objects.equals(employeeFirstName,
-                emploee.employeeFirstName) && Objects.equals(employeeLastName, emploee.employeeLastName)
-                && Objects.equals(employeeMiddleName, emploee.employeeMiddleName);
+        return employeeSalary == emploee.employeeSalary;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeFirstName, employeeLastName, employeeMiddleName, employeeSalary);
+        return Integer.hashCode(employeeSalary);
     }
 }
