@@ -26,7 +26,10 @@ public class EmployeeBook {
 
     public void printEmployeeInfo() {
         for (Employee employees : employee) {
-            System.out.println(employees);
+            if (employees == null) {
+                continue;
+            }
+            System.out.println(employees.toString());
         }
     }
 
@@ -119,9 +122,13 @@ public class EmployeeBook {
     public float calculateAverageSalary() {
         int avgSum = 0;
         for (Employee employees : employee) {
-            if (employees != null) {
-                avgSum++;
+            if (employees == null) {
+                break;
             }
+                avgSum++;
+        }
+        if (avgSum == 0) {
+            return 0;
         }
         return salaryCalculate() / avgSum;
     }
@@ -158,11 +165,15 @@ public class EmployeeBook {
 
     public float salaryIndexIncrease(float index, int departmentId) {
         for (Employee employees : employee) {
-            if (employees != null && employees.getDepartmentId() == departmentId) {
-                employees.setEmployeeSalary( (int) (employees.getEmployeeSalary()
-                        + (employees.getEmployeeSalary() / 100 * index)));
+            if (employees != null && employees.getDepartmentId() != departmentId) {
+                continue;
             }
-        }
+            if (index == 0) {
+                continue;
+            }
+                employees.setEmployeeSalary((int) (employees.getEmployeeSalary()
+                        + employees.getEmployeeSalary() / 100 * index));
+            }
         return index;
     }
 
@@ -186,5 +197,74 @@ public class EmployeeBook {
                         + employees.getEmployeeMiddleName() + " | Зарплата: " + employees.getEmployeeSalary());
             }
         }
+    }
+
+    public void calcTaxes(String taxType) {
+        for (Employee employees: employee) {
+            if (employees == null) {
+                continue;
+            }
+
+            float tax = 0;
+
+            switch (taxType) {
+                case "PROPORTIONAL":
+                    tax = employees.getEmployeeSalary() * 0.13f;
+                    break;
+                case "PROGRESSIVE":
+                    if (employees.getEmployeeSalary() <= 150) {
+                        tax = employees.getEmployeeSalary() * 0.13f;
+                    }
+                    else if (employees.getEmployeeSalary() <= 350) {
+                        tax = employees.getEmployeeSalary() * 0.17f;
+                    }
+                    else {
+                        tax = employees.getEmployeeSalary() * 0.21f;
+                    }
+                    break;
+            }
+            System.out.println(employees.getEmployeeLastName()
+                    + " " + employees.getEmployeeFirstName()
+                    + " | Налог: " + tax);
+        }
+    }
+
+    public void findFirstEmployeeByDepartmentAndSalaryMoreThanLimit (int departmentId, int salary) {
+        for (int i = 0; i < employee.length; i++) {
+            Employee employees = employee[i];
+
+            if (employees != null && employees.getDepartmentId() == departmentId && employees.getEmployeeSalary() > salary) {
+                System.out.println("Порядковый номер сотрудника с зарплатой больше указанной: " + (i + 1));
+                employees.printShortInfo();
+                break;
+            }
+        }
+    }
+
+    public void findEmployeesWithSalaryLessThanLimit(int wage, int employeeNumber) {
+        int i = 0;
+        int iCount = 0;
+
+        System.out.println("Информация о сотрудниках с зарплатой меньше указанной: " + wage);
+        while (i < employee.length) {
+            if (employee[i] != null && employee[i].getEmployeeSalary() < wage) {
+                employee[i].printShortInfo();
+                iCount++;
+            }
+
+            if (iCount == employeeNumber) {
+                break;
+            }
+            i++;
+        }
+    }
+
+    public boolean checkExistEmployeeOrNot( Employee searchEmployee) {
+        for (Employee employees: employee) {
+            if (employees != null && employees.equals(searchEmployee)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -3,11 +3,11 @@ public class Main {
 
         EmployeeBook eBook = new EmployeeBook();
         eBook.addNewEmployee(1, "Булгакова",
-                "София", "Леоновна", 328);
+                "София", "Леоновна", 128);
         eBook.addNewEmployee(2, "Родина",
-                "Александра", "Артемьевна", 315);
+                "Александра", "Артемьевна", 115);
         eBook.addNewEmployee(3, "Зайцева",
-                "Елизавета", "Ивановна", 340);
+                "Елизавета", "Ивановна", 240);
         eBook.addNewEmployee(5, "Демин",
                 "Матвей", "Андреевич", 278);
         eBook.addNewEmployee(4, "Румянцев",
@@ -15,15 +15,26 @@ public class Main {
         eBook.addNewEmployee(2, "Лопатин",
                 "Тимофей", "Викторович", 307);
         eBook.addNewEmployee(1, "Котова",
-                "Сафия", "Михайловна", 297);
+                "Сафия", "Михайловна", 397);
         eBook.addNewEmployee(5, "Федосеев",
                 "Алексей", "Львович", 351);
         eBook.addNewEmployee(4, "Смирнов",
-                "Александр", "Александрович", 330);
+                "Александр", "Александрович", 430);
         eBook.addNewEmployee(3, "Кузьмина",
-                "Мария", "Максимовна", 335);
-
-        // Вывод информации по всем сотрудникам
+                "Мария", "Максимовна", 435);
+        //Подсчет Пропорционального и Прогрессивного налогов
+        System.out.println("Пропорциональный налог:");
+        eBook.calcTaxes("PROPORTIONAL");
+        System.out.println("Прогрессивный налог:");
+        eBook.calcTaxes("PROGRESSIVE");
+        //Поиск первого сотрудника отдела с зарплатой больше указанной
+        eBook.findFirstEmployeeByDepartmentAndSalaryMoreThanLimit(1, 300);
+        //Поиск сотрудников с зарплатой меньше указанной
+        eBook.findEmployeesWithSalaryLessThanLimit(230, 3);
+        //Проверка наличия сотрудника
+        Employee searchEmployee = new Employee(1, "Булгакова",
+                "София", "Леоновна", 128);;
+        System.out.println(eBook.checkExistEmployeeOrNot(searchEmployee));
         eBook.printEmployeeInfo();
         // Расчет общей суммы по ЗП, поиск минимальной/максимальной ЗП, расчет средней ЗП
         System.out.println("Сотрудник с минимальной зарплатой: " + eBook.calculateMinSalary());
