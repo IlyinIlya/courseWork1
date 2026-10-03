@@ -1,16 +1,15 @@
-import java.util.Objects;
-
 public class Employee {
+
     private final String employeeFirstName;
     private final String employeeLastName;
     private final String employeeMiddleName;
     private int department;
-    private float employeeSalary;
+    private int employeeSalary;
     private final int id;
     private static int idCounter = 0;
 
     public Employee(int department, String employeeLastName, String employeeFirstName,
-                    String employeeMiddleName, float employeeSalary) {
+                    String employeeMiddleName, int employeeSalary) {
         this.department = department;
         this.employeeLastName = employeeLastName;
         this.employeeFirstName = employeeFirstName;
@@ -36,7 +35,7 @@ public class Employee {
         return this.department;
     }
 
-    public float getEmployeeSalary() {
+    public int getEmployeeSalary() {
         return this.employeeSalary;
     }
 
@@ -49,15 +48,23 @@ public class Employee {
         this.department = department;
     }
 
-    public void setEmployeeSalary(float employeeSalary) {
+    public void setEmployeeSalary(int employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
 
     //String
+    @Override
     public String toString() {
         return "ID: " + id + " | Отдел: " + department + " | ФИО: "
                 + employeeLastName + " " + employeeFirstName + " "
                 + employeeMiddleName + " | Зарплата: " + employeeSalary;
+    }
+
+    //Вывод только имени и зарплате
+    public void printShortInfo() {
+        System.out.println("ФИО: " + employeeLastName + " "
+                + employeeFirstName + " " + employeeMiddleName
+                + " | Зарплата: " + employeeSalary);
     }
 
     // Equals и hascode
@@ -65,14 +72,12 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee emploee = (Employee) o;
-        return employeeSalary == emploee.employeeSalary && Objects.equals(employeeFirstName,
-                emploee.employeeFirstName) && Objects.equals(employeeLastName, emploee.employeeLastName)
-                && Objects.equals(employeeMiddleName, emploee.employeeMiddleName);
+        Employee employee = (Employee) o;
+        return employeeSalary == employee.employeeSalary;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeFirstName, employeeLastName, employeeMiddleName, employeeSalary);
+        return Integer.hashCode(employeeSalary);
     }
 }
