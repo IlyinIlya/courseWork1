@@ -44,15 +44,10 @@ public class Main {
         eBook.calcTaxes("PROPORTIONAL");
         System.out.println("Прогрессивный налог:");
         eBook.calcTaxes("PROGRESSIVE");
-        //Индексация зарплаты
-        System.out.println("Если процент повышения зарплаты: " + eBook.salaryIndexIncrease(7) + "%, то:");
-        eBook.printEmployeeInfo();
-        // Расчет индексирования ЗП при задании фильтра по отделу
-        int departmentID = 5;
-        System.out.println("Если процент повышения зарплатыв отделе № " + departmentID + ": "
-                + eBook.salaryIndexIncrease(9, departmentID) + "%, то:");
         //Поиск первого сотрудника отдела с зарплатой больше указанной
-        eBook.findFirstEmployeeByDepartmentAndSalaryMoreThanLimit(1, 300);
+        eBook.findFirstEmployeeByDepartmentAndSalaryMoreThanLimit(1, 127);
+        eBook.findFirstEmployeeByDepartmentAndSalaryMoreThanLimit(1, 128);
+        eBook.findFirstEmployeeByDepartmentAndSalaryMoreThanLimit(1, 397);
         //Поиск сотрудников с зарплатой меньше указанной
         eBook.findEmployeesWithSalaryLessThanLimit(230, 3);
         //Проверка существования сотрудника
@@ -65,41 +60,17 @@ public class Main {
         System.out.println(eBook.checkExistEmployeeOrNot(employee2));
         //Вывод информации о сотруднике по ID
         System.out.println(eBook.printById(5));
-
-        // Расчет общей суммы по ЗП, поиск минимальной/максимальной ЗП, расчет средней ЗП
-        System.out.println("Сотрудник с минимальной зарплатой: " + eBook.calculateMinSalary());
-        System.out.println("Сотрудник с максимальной зарплатой: " + eBook.calculateMaxSalary());
-        // Вывод информации: ФИО сотрудников
-        eBook.printEmployeeFullName();
-
-        // Поиск минимальной/максимальной ЗП при задании фильтра по отделам
-        System.out.println("В отделе № " + departmentID + " минимальная зарплата сотрудника: "
-                + eBook.calculateMinSalary(departmentID));
-        System.out.println("В отделе № " + departmentID + " максимальная зарплата сотрудника: "
-                + eBook.calculateMaxSalary(departmentID));
-        // Расчет суммы ЗП при задании фильтра по отделу
-        System.out.println("Сумма затрат на зарплаты в отделе № " + departmentID + " составляет: "
-                + eBook.salaryCalculate(departmentID));
-        // Расчет средней ЗП при задании фильтра по отделу
-        System.out.println("Средняя зарплата в отделе № " + departmentID + " составляет: "
-                + eBook.calculateAverageSalary(departmentID));
-        // Расчет индексирования ЗП при задании фильтра по отделу
-        System.out.println("Если процент повышения зарплатыв отделе № " + departmentID + ": "
-                + eBook.salaryIndexIncrease(9, departmentID) + "%, то:");
-        eBook.printByDepartment(departmentID);
-        // Вывод информации по всем сотрудником, исключая номер отдела
-        eBook.printEmployeeInfoNoDep();
-        // Вывод информации по сотрудникам с ЗП меньше лимита
-        float limitSalary = 330;
-        eBook.findLessLimitCurrentSalary(limitSalary);
-        // Вывод информации по сотрудникам с ЗП меньше лимита
-        eBook.findMoreLimitCurrentSalary(limitSalary);
-        //Удалить сотрудника по ID
-        eBook.removeEmployee(2);
-        eBook.printEmployeeInfo();
-        //Добавить нового сотрудника
-        eBook.addNewEmployee(2, "Петров", "Иван", "Романович", 432);
+        System.out.println(eBook.printById(555));
         eBook.printEmployeeInfo();
 
+        // Проверка пустого и частично заполненного массива.
+        EmployeeBook testeBook = new EmployeeBook();
+
+        System.out.println("Средняя зарплата: " + testeBook.calculateAverageSalary());
+        System.out.println(testeBook.addNewEmployee(new Employee(
+                2, "Цукерберг",
+                "Марк", "Эллиот", 100)));
+        testeBook.printEmployeeInfo();
+        System.out.println("Средняя зарплата: " + testeBook.calculateAverageSalary());
     }
 }

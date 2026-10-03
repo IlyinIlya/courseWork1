@@ -53,11 +53,13 @@ public class Employee {
     }
 
     //String
+    @Override
     public String toString() {
         return "ID: " + id + " | Отдел: " + department + " | ФИО: "
                 + employeeLastName + " " + employeeFirstName + " "
                 + employeeMiddleName + " | Зарплата: " + employeeSalary;
     }
+
     //Вывод только имени и зарплате
     public void printShortInfo() {
         System.out.println("ФИО: " + employeeLastName + " "
@@ -70,8 +72,8 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee emploee = (Employee) o;
-        return employeeSalary == emploee.employeeSalary;
+        Employee employee = (Employee) o;
+        return employeeSalary == employee.employeeSalary;
     }
 
     @Override
